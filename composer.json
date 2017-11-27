@@ -1,0 +1,22 @@
+{
+    "name": "estimator/estimator",
+    "type": "library",
+    "description": "Cost valuation standard",
+    "keywords": ["estimate", "estimator", "price", "pricing", "cost", "calculate", "calculator"],
+    "homepage": "git@gitlab.com:stepan.zarubin/estimator.git",
+	"license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Stepan Zarubin",
+            "email": "stepan.zarubin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "autoload": {
+			"psr-4": {
+			"": "src/"
+		}
+    }
+}

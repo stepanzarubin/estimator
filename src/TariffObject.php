@@ -17,14 +17,14 @@ abstract class TariffObject
     /**
      * TariffObject constructor.
      * @param $config
-     * @throws Exception
+     * @throws \Exception
      */
     public function __construct($config)
     {
         $this->className = get_class($this);
 
         if (!is_object($config))
-            throw new Exception("'Config' has to be an object.");
+            throw new \Exception("'Config' has to be an object.");
 
         foreach ($config as $name => $value)
             if (property_exists($this,$name))
@@ -33,7 +33,7 @@ abstract class TariffObject
                 {
                     $tariffClass = ucfirst($name) . 'Tariff';
                     if (!class_exists($tariffClass))
-                        throw new Exception("$tariffClass class does not exist.");
+                        throw new \Exception("$tariffClass class does not exist.");
                     $this->$name = new $tariffClass($value);
                 }
                 else

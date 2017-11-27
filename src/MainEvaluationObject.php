@@ -17,18 +17,18 @@ abstract class MainEvaluationObject extends EvaluationObject
     /**
      * @param $config
      * @return bool
-     * @throws Exception
+     * @throws \Exception
      */
     public function populate($config) {
         if (!$config)
             return false;
 
         if (!is_object($config))
-            throw new Exception("'Config' has to be an object.");
+            throw new \Exception("'Config' has to be an object.");
 
         //this is not necessary because common object should have defaults defined in common class
         //if (!isset($config->common))
-            //throw new Exception("Main evaluation object 'common' has to be defined");
+            //throw new \Exception("Main evaluation object 'common' has to be defined");
 
 //        echo '<pre>';
 //        print_r($config);
@@ -47,7 +47,7 @@ abstract class MainEvaluationObject extends EvaluationObject
             //e.g. "CarCommon"
             $commonClass = "{$this->className}Common";
             if (!class_exists($commonClass))
-                throw new Exception("$commonClass class does not exist.");
+                throw new \Exception("$commonClass class does not exist.");
 
             $this->common = new $commonClass;
         }
@@ -56,10 +56,10 @@ abstract class MainEvaluationObject extends EvaluationObject
         foreach ($config as $name => $value)
         {
             if (!property_exists($this,$name))
-                throw new Exception("'$name' has to be a part of 'common' object.");
+                throw new \Exception("'$name' has to be a part of 'common' object.");
 
             if (!is_object($value))
-                throw new Exception("'$name' has to be an object.");
+                throw new \Exception("'$name' has to be an object.");
 
             if ($name == 'common')
                 $this->common->populate($value);
@@ -71,7 +71,7 @@ abstract class MainEvaluationObject extends EvaluationObject
                 //e.g. "Gas"
                 $evaluationObjectClass = ucfirst(strtolower($name));
                 if (!class_exists($evaluationObjectClass))
-                    throw new Exception("$evaluationObjectClass class does not exist.");
+                    throw new \Exception("$evaluationObjectClass class does not exist.");
                 $this->$name = new $evaluationObjectClass($value);
             }
         }

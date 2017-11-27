@@ -29,20 +29,20 @@ class EvaluationObjectAdjustment
     /**
      * @param $config
      * @return bool
-     * @throws Exception
+     * @throws \Exception
      */
     public function populate($config) {
         if (!$config)
             return false;
 
         if (!is_object($config))
-            throw new Exception("'Config' has to be an object.");
+            throw new \Exception("'Config' has to be an object.");
 
         foreach ($config as $name => $value)
             $this->$name = $value;
 
         if ($this->amount != 0 && $this->percent != 0)
-            throw new Exception("Adjustment should be either amount or percent, but not both.");
+            throw new \Exception("Adjustment should be either amount or percent, but not both.");
     }
 
     /**

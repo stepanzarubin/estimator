@@ -22,14 +22,14 @@ class ServiceEvaluationObject extends EvaluationObject
     /**
      * @param $config
      * @return bool
-     * @throws Exception
+     * @throws \Exception
      */
     public function populate($config) {
         if (!$config)
             return false;
 
         if (!is_object($config))
-            throw new Exception("'Config' has to be an object.");
+            throw new \Exception("'Config' has to be an object.");
 
         foreach ($config as $name => $value)
             //changing the order may allow override adjustment class

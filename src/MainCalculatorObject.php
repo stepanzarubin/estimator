@@ -28,7 +28,7 @@ abstract class MainCalculatorObject extends CalculatorObject
 
     /**
      * @return float
-     * @throws Exception
+     * @throws \Exception
      */
     public function calculate()
     {
@@ -36,7 +36,7 @@ abstract class MainCalculatorObject extends CalculatorObject
         $subtotal_index = 1;
 
         if (!is_array($this->tariffObject->services) || empty($this->tariffObject->services))
-            throw new Exception("{$this->tariffObject->className} has to have filled 'services' array defined.");
+            throw new \Exception("{$this->tariffObject->className} has to have filled 'services' array defined.");
 
         foreach ($this->tariffObject->services as $serviceName)
         {
@@ -49,7 +49,7 @@ abstract class MainCalculatorObject extends CalculatorObject
             {
                 $calculatorClass = ucfirst($serviceName) . 'Calculator';
                 if (!class_exists($calculatorClass))
-                    throw new Exception("$calculatorClass class does not exist.");
+                    throw new \Exception("$calculatorClass class does not exist.");
 
                 //print_r($calculatorEvaluationObject);exit;
                 $calculatorEvaluationObject = $this->evaluationObject->$serviceName;

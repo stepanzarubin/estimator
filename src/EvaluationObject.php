@@ -23,7 +23,7 @@ class EvaluationObject
     /**
      * EvaluationObject constructor.
      * @param null $config
-     * @throws Exception
+     * @throws \Exception
      */
     public function __construct($config = null)
     {
@@ -34,14 +34,14 @@ class EvaluationObject
     /**
      * @param $config
      * @return bool
-     * @throws Exception
+     * @throws \Exception
      */
     public function populate($config) {
         if (!$config)
             return false;
 
         if (!is_object($config))
-            throw new Exception("'Config' has to be an object.");
+            throw new \Exception("'Config' has to be an object.");
 
         foreach ($config as $name => $value)
             if (isset($this->map[$name]))
@@ -53,13 +53,13 @@ class EvaluationObject
     /**
      * @param $name
      * @param null $config
-     * @throws Exception
+     * @throws \Exception
      */
     public function instantiateMapObject($name, $config=null)
     {
         $mapClass = $this->map[$name];
         if (!class_exists($mapClass))
-            throw new Exception("$mapClass class does not exist.");
+            throw new \Exception("$mapClass class does not exist.");
 
         $this->$name = new $mapClass($config);
     }

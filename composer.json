@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Cost valuation standard",
     "keywords": ["estimate", "estimator", "price", "pricing", "cost", "calculate", "calculator"],
-    "homepage": "git@gitlab.com:stepan.zarubin/estimator.git",
+    "homepage": "https://gitlab.com/stepan.zarubin/estimator.git",
 	"license": "BSD-3-Clause",
     "authors": [
         {

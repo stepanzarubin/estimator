@@ -15,8 +15,7 @@ class EvaluationObject
     public $className;
 
     /**
-     * Allows to override expected class name
-     * @var array
+     * @var array Property => Class
      */
     protected $map = [];
 
@@ -44,10 +43,15 @@ class EvaluationObject
             throw new \Exception("'Config' has to be an object.");
 
         foreach ($config as $name => $value)
-            if (isset($this->map[$name]))
-                $this->instantiateMapObject($name,$value);
+            if (property_exists($this,$name))
+            {
+                if (isset($this->map[$name]))
+                    $this->instantiateMapObject($name, $value);
+                else
+                    $this->$name = $value;
+            }
             else
-                $this->$name = $value;
+                throw new \Exception("Property '$name' does not exist.");
     }
 
     /**

@@ -1,11 +1,11 @@
 ##
 
 ##"Estimator" has its goal to become a "Cost Valuation Standard" developers can benefit from while implementing pricing mechanisms for any kind of business.
+#####*Any developer, regardless of his level, while following specification, should be able to get to the same result.* 
 
 ##Idea
 1. "Turing machine" https://en.wikipedia.org/wiki/Turing_machine
    Input data => Algorithm => Output data
-
 
 ##Naming conventions:
 1. EO - evaluation object.

@@ -1,3 +1,4 @@
+
 ##"Estimator" has its goal to become a "Cost Valuation Standard" developers can benefit from while implementing pricing mechanism for any kind of business.
 
 ##Idea

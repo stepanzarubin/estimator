@@ -18,6 +18,16 @@ abstract class CalculatorObject implements CalculatorInterface
     /**
      * @var string
      */
+    public $className;
+
+    /**
+     * @var string
+     */
+    protected $shortClassName;
+
+    /**
+     * @var string
+     */
     protected $name;
 
     /**
@@ -54,8 +64,11 @@ abstract class CalculatorObject implements CalculatorInterface
      */
     public function __construct(EvaluationObject $common, EvaluationObject $evaluationObject, TariffObject $tariffObject = null)
     {
-        //"ServiceCalculator" => "Service" ("GasCalculator" => "Gas")
-        $this->name = str_ireplace('calculator', '', get_class($this));
+        $this->className = get_class($this);
+        //class name without namespace, e.g. "GasCalculator"
+        $this->shortClassName = substr(strrchr($this->className, '\\'), 1);
+        //service name, e.g. "Gas"
+        $this->name = str_ireplace('calculator', '', $this->shortClassName);
         $this->common = $common;
 
         $this->evaluationObject = $evaluationObject;

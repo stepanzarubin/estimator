@@ -27,7 +27,7 @@ class CalculatorResult
      * @param $costEffective
      * @param array $log
      */
-    public function __construct(string $calculator, $cost=0, $costEffective=0, array $log=[])
+    public function __construct($calculator, $cost=0, $costEffective=0, array $log=[])
     {
         $this->calculator = $calculator;
         $this->cost = $cost;

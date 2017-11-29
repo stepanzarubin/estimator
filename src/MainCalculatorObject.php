@@ -17,6 +17,12 @@ namespace Estimator\Estimator;
 abstract class MainCalculatorObject extends CalculatorObject
 {
     /**
+     * Calculators class map
+     * @var array
+     */
+    protected $map = [];
+
+    /**
      * MainCalculatorObject constructor.
      * @param MainEvaluationObject $evaluationObject
      * @param TariffObject|null $tariffObject
@@ -24,6 +30,29 @@ abstract class MainCalculatorObject extends CalculatorObject
     public function __construct(MainEvaluationObject $evaluationObject, TariffObject $tariffObject = null)
     {
         parent::__construct($evaluationObject->common, $evaluationObject, $tariffObject);
+    }
+
+    /**
+     * @param $serviceName
+     * @return mixed
+     * @throws \Exception
+     */
+    protected function getCalculatorClass($serviceName) {
+        if (!isset($this->map[$serviceName]))
+            throw new \Exception("'$serviceName' calculator class is not defined.");
+
+        $mapClass = $this->map[$serviceName];
+
+        //make sure that class name is correct, e.g. gas => GasCalculator
+        $classNameEnd = ucfirst($serviceName) . 'Calculator';
+        $endsCorrectly = substr_compare( $mapClass, $classNameEnd, -strlen( $classNameEnd ) ) === 0;
+        if (!$endsCorrectly)
+            throw new \Exception("'$mapClass' should end with '$classNameEnd'.");
+
+        if (!class_exists($mapClass))
+            throw new \Exception("$mapClass class does not exist.");
+
+        return $mapClass;
     }
 
     /**
@@ -47,9 +76,7 @@ abstract class MainCalculatorObject extends CalculatorObject
             //if eval object has service defined
             if (isset($this->evaluationObject->$serviceName))
             {
-                $calculatorClass = ucfirst($serviceName) . 'Calculator';
-                if (!class_exists($calculatorClass))
-                    throw new \Exception("$calculatorClass class does not exist.");
+                $calculatorClass = $this->getCalculatorClass($serviceName);
 
                 //print_r($calculatorEvaluationObject);exit;
                 $calculatorEvaluationObject = $this->evaluationObject->$serviceName;

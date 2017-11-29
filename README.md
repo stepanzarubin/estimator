@@ -3,6 +3,9 @@
 ##"Estimator" has its goal to become a "Cost Valuation Standard" developers can benefit from while implementing pricing mechanisms for any kind of business.
 #####*Any developer, regardless of his level, while following specification, should be able to get to the same result.* 
 
+##Examples of usage
+https://gitlab.com/stepan.zarubin/estimator-example.git
+
 ##Idea
 1. "Turing machine" https://en.wikipedia.org/wiki/Turing_machine
    Input data => Algorithm => Output data

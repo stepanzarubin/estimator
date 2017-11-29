@@ -1,4 +1,6 @@
-#"Estimator" has its goal to become a "Cost Valuation Standard" developers can benefit from while implementing pricing mechanisms for any kind of business.
+##
+
+##"Estimator" has its goal to become a "Cost Valuation Standard" developers can benefit from while implementing pricing mechanisms for any kind of business.
 
 ##Idea
 1. "Turing machine" https://en.wikipedia.org/wiki/Turing_machine

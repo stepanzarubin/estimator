@@ -2,9 +2,6 @@
 
 namespace Estimator\Estimator;
 
-//require_once 'CalculatorInterface.php';
-//require_once 'CalculatorResult.php';
-
 /**
  * Class CalculatorObject
  *

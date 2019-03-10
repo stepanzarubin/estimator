@@ -171,6 +171,7 @@ what looks better?
 2. Save Tariff.
 3. Save Calculation Log.
 5. Representation can be based on Estimate model, since it has all the information (result does not have EO and T)
+6. Once estimate saved (quote sent to a customer), show diff between actual and saved estimate
 
 ## Future
 1. Evaluation Object and Tariff is enough to implement calculation.

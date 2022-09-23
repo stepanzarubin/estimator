@@ -4,7 +4,7 @@
 #####*Any developer, regardless of his level, while following specification, should be able to get to the same result.* 
 
 ##Examples of usage
-https://gitlab.com/stepan.zarubin/estimator-example.git
+https://github.com/stepanzarubin/estimator-example.git
 
 ##Idea
 1. "Turing machine" https://en.wikipedia.org/wiki/Turing_machine
